@@ -25,16 +25,16 @@ All the tests written for this app are contained inside of the **feedreader.js**
 ## Tests overview:
 
 **RSS Feeds**
-1. are defined;
-2. all have a URL defined and not empty;
-3. all have a name defined and not empty;
+- are defined;
+- all have a URL defined and not empty;
+- all have a name defined and not empty;
 
 **The menu**
-4. should not be visible by default;
-5. changes visibility when the menu icon is clicked;
+- should not be visible by default;
+- changes visibility when the menu icon is clicked;
 
 **Initial Entries**
-6. there is at least one entry when loadFeed is called and complete;
+- there is at least one entry when loadFeed is called and complete;
 
 **New Feed Selection**
-7. when a new feed is loaded, the content changes;
+- when a new feed is loaded, the content changes;
