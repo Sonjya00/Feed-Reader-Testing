@@ -6,7 +6,7 @@ This is a project made for the completion of the [Udacity's Front-End Web Develo
 
 Detailed instructions for this project can be found on the [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
 
-# Project Overview
+## Overview
 
 For this project, a web-based application that reads RSS feeds is provided. The objective of the project is to write a series of test suites using the framework [Jasmine](http://jasmine.github.io/) in order to analyze multiple aspects of the Feed Reader and to make sure that all its functionalities work as expected.
 
@@ -22,7 +22,7 @@ Under the stats, there is a list describing all of the tests performed. The test
 
 All the tests written for this app are contained inside of the **feedreader.js** file, which is found on jasmine/spec.
 
-## Tests overview:
+## Tests description
 
 **RSS Feeds**
 - are defined;

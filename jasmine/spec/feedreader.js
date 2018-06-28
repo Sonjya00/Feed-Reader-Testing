@@ -11,7 +11,7 @@
 
 
 /* This test suite is all about the RSS feeds definitions,
- * the allFeeds variable in our application.
+ * the allFeeds variable in the application.
  */
 $(function() {
 	describe('RSS Feeds', function() {
@@ -73,6 +73,7 @@ $(function() {
 			menuIcon.trigger('click');
 			expect(body.hasClass('menu-hidden')).toBeTruthy();
 		});
+
 	});
 
 
@@ -80,7 +81,7 @@ $(function() {
 	 * completes its work, there is at least a single .entry element within
 	 * the .feed container
 	 */
-	describe('Initial Entries', () => {
+	describe('Initial Entries', function() {
 
 		/* Since loadFeed() is asynchronous, it's necessary to use
 		 * Jasmine's beforeEach and asynchronous done() function.
@@ -92,32 +93,35 @@ $(function() {
 		});
 
 		it('there is at least one entry when loadFeed is called and complete.', function(done) {
-			expect($('.feed').find($('.entry'))).toBeTruthy(); //or
-			expect($('.feed').find($('.entry')).length).toBeGreaterThan(0);
+			expect($('.feed').find($('.entry'))).toBeTruthy();
 			done();
 		});
+
 	});
 
 
 	/* This test suite ensures that when a new feed is loaded by the loadFeed
 	 * function, the content of the .feed container changes.
 	 */
-	describe('New Feed Selection', () => {
+	describe('New Feed Selection', function() {
 		var feed_0,
 			feed_1;
 
-		/* The loadFeed function is called twice and loads a different feed each
-		 * time. The html values are stored in two variable previously defined,
-		 * so that it is possible to compare the content of the two feeds
-		 * in the test. Again, since loadFeed() is asynchronous,
-		 * beforeEach and done() function are used.
+		/* Again, since loadFeed() is asynchronous, beforeEach and done()
+		 * function are used. First of all, it is necessary to make sure that
+		 * the feed is empty. Then, the loadFeed function is called twice and
+		 * loads a different feed each time. To compare the two feeds and
+		 * make sure their content is different, the html values are stored
+		 * in two variable previously defined.
 		 */
 		beforeEach(function(done) {
+			// Empty the feed
 			$('.feed').empty();
+			// First feed is loaded
 			loadFeed(0, function() {
 				feed_0 = $('.feed').html();
 			});
-
+			// Second feed is loaded
 			loadFeed(1, function() {
 				feed_1 = $('.feed').html();
 				done();
@@ -128,5 +132,7 @@ $(function() {
 			expect(feed_0).not.toEqual(feed_1);
 			done();
 		});
+		
 	});
+
 }());
