@@ -1,3 +1,5 @@
+/*eslint no-undef: 0*/
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -28,20 +30,33 @@ $(function() {
      * and ensures they all have a URL defined and not empty.
      */
 		it('all have a URL defined and not empty', function() {
+			// before review
+			/*
 			for (var i = 0; i < allFeeds.length; i++) {
 				expect(allFeeds[i].url).toBeDefined();
 				expect(allFeeds[i].url.length).not.toBe(0);
-			}
+			*/
+			allFeeds.forEach(function(feed){
+				expect(feed.url).toBeDefined();
+				expect(feed.url).not.toBe(0);
+			});
 		});
 
 		/* This test loops through each feed in the allFeeds object
      * and ensures they all have a name defined and not empty.
      */
 		it('all have a name defined and not empty', function() {
+			// before review
+			/*
 			for (var i = 0; i < allFeeds.length; i++) {
 				expect(allFeeds[i].name).toBeDefined();
 				expect(allFeeds[i].name.length).not.toBe(0);
-			}
+			}*/
+			allFeeds.forEach(function(feed){
+				expect(feed.name).toBeDefined();
+				expect(feed.name).not.toBe(0);
+			});
+
 		});
 
 	});
@@ -93,7 +108,9 @@ $(function() {
 		});
 
 		it('there is at least one entry when loadFeed is called and complete.', function(done) {
-			expect($('.feed').find($('.entry'))).toBeTruthy();
+			// before review
+			// expect($('.feed').find($('.entry'))).toBeTruthy();
+			expect($('.feed .entry')).toBeTruthy();
 			done();
 		});
 
@@ -114,6 +131,8 @@ $(function() {
 		 * make sure their content is different, the html values are stored
 		 * in two variable previously defined.
 		 */
+		// Before review
+		/*
 		beforeEach(function(done) {
 			// Empty the feed
 			$('.feed').empty();
@@ -127,12 +146,27 @@ $(function() {
 				done();
 			});
 		});
+		*/
+
+		beforeEach(function(done) {
+			// Empty the feed
+			$('.feed').empty();
+			// First feed is loaded
+			loadFeed(0, function() {
+				feed_0 = $('.feed').html();
+				// Second feed is loaded
+				loadFeed(1, function() {
+					feed_1 = $('.feed').html();
+					done();
+				});
+			});
+		});
 
 		it('when a new feed is loaded, the content changes', function(done) {
 			expect(feed_0).not.toEqual(feed_1);
 			done();
 		});
-		
+
 	});
 
 }());
