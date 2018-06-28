@@ -1,5 +1,3 @@
-/*eslint-disable no-undef*/
-
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -32,8 +30,6 @@ $(function() {
 		it('all have a URL defined and not empty', function() {
 			for (var i = 0; i < allFeeds.length; i++) {
 				expect(allFeeds[i].url).toBeDefined();
-				//expect(allFeeds[i].url).not.toBe('');
-				//expect(allFeeds[i].url).not.toBe(null); //or
 				expect(allFeeds[i].url.length).not.toBe(0);
 			}
 		});
@@ -44,8 +40,6 @@ $(function() {
 		it('all have a name defined and not empty', function() {
 			for (var i = 0; i < allFeeds.length; i++) {
 				expect(allFeeds[i].name).toBeDefined();
-				//expect(allFeeds[i].name).not.toBe('');
-				//expect(allFeeds[i].name).not.toBe(null); //or
 				expect(allFeeds[i].name.length).not.toBe(0);
 			}
 		});

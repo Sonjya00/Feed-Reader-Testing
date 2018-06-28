@@ -1,5 +1,3 @@
-/*eslint-disable no-undef*/
-
 /* app.js
  *
  * This is the RSS feed reader application. It uses the Google
