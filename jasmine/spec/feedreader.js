@@ -97,7 +97,7 @@ $(function() {
 			});
 		});
 
-		it('there is at least one when loadFeed is called and complete.', function(done) {
+		it('there is at least one entry when loadFeed is called and complete.', function(done) {
 			expect($('.feed').find($('.entry'))).toBeTruthy(); //or
 			expect($('.feed').find($('.entry')).length).toBeGreaterThan(0);
 			done();
